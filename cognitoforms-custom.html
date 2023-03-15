@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CognitoForms Custom Iframe</title>
+</head>
+<body>
+  <script src="https://www.cognitoforms.com/s/YOUR_EMBED_SCRIPT_HERE"></script>
+
+  <script>
+    function handleMessage(event) {
+      if (event.data.type !== "changeSubmitButtonClass") {
+        return;
+      }
+
+      const submitButton = document.querySelector(".cog-button");
+      if (submitButton) {
+        submitButton.className = "button contact-butt w-button";
+      }
+    }
+
+    window.addEventListener("message", handleMessage, false);
+  </script>
+</body>
+</html>
